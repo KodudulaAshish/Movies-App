@@ -13,6 +13,13 @@ class SignUp extends StatelessWidget {
       if (passwordController.text == confirmPasswordController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text);
+
+        showDialog(context: context, builder: (context)=>
+        const AlertDialog(
+          title: CircularProgressIndicator(),
+        ));
+
+        Navigator.pop(context);
       } else {
         showDialog(
             context: context,
